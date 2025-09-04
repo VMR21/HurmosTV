@@ -51,30 +51,32 @@
                 order: 3;
             }
         }
-        
-        /* Language selector styles */
-        .language-selector {
-            position: absolute;
-            top: 25px;
-            right: 25px;
-        }
 
-        .language-selector select {
-            background-color: #1a1a1a;
-            color: #fff;
-            border: 1px solid #444;
-            padding: 8px 12px;
-            border-radius: 5px;
+        /* Language selector styles */
+        .language-select {
+            background: transparent;
+            border: none;
+            color: white;
+            padding: 0;
             cursor: pointer;
+            font-family: inherit;
+            font-size: 1rem;
+            text-transform: uppercase;
+            font-weight: 600;
+            outline: none;
+            margin-left: 1rem;
             -webkit-appearance: none;
             -moz-appearance: none;
             appearance: none;
-            font-size: 1rem;
-            outline: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23ffffff' viewBox='0 0 24 24'%3E%3Cpath d='M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 0.5rem center;
+            padding-right: 1.5rem;
         }
 
-        .language-selector select:hover {
-            border-color: #2196f3;
+        .language-select option {
+            background-color: #1a1a1a;
+            color: #fff;
         }
     </style>
 </head>
@@ -94,18 +96,16 @@
                     <a href="/leaderboard/stake" class="nav-link"><i class="fas fa-trophy"
                             style="color: #d4af37"></i>
                         <span data-key="nav-leaderboard">LEADERBOARD</span></a>
+                    <!-- Language selector moved here -->
+                    <select id="language-select" class="language-select">
+                        <option value="en">EN</option>
+                        <option value="fi">FI</option>
+                    </select>
                 </div>
                 <button class="mobile-menu-btn">
                     <i class="fas fa-bars"></i>
                 </button>
             </div>
-        </div>
-        <!-- Language selector -->
-        <div class="language-selector">
-            <select id="language-select">
-                <option value="en">English</option>
-                <option value="fi">Finnish</option>
-            </select>
         </div>
     </header>
 
@@ -169,7 +169,8 @@
 
     <section class="bonus-section" id="bonuses">
         <div class="section-title">
-            <h2 class="bonus-title" data-key="bonus-title">Bonus <span style="color: var(--primary-blue)">Offers</span></h2>
+            <h2 class="bonus-title" data-key="bonus-title">Bonus <span
+                    style="color: var(--primary-blue)">Offers</span></h2>
             <p class="bonus-subtitle" data-key="bonus-subtitle">CLAIM AND RECEIVE REWARDS INSTANTLY!</p>
         </div>
         <div class="bonus-grid">
@@ -329,9 +330,9 @@
             // Handle the span inside the bonus title separately to preserve its color
             const bonusTitleH2 = document.querySelector('.section-title .bonus-title');
             if (bonusTitleH2 && translations[language]['bonus-title']) {
-                 const bonusOffersText = translations[language]['bonus-title'].split(' ')[0];
-                 const offersText = translations[language]['bonus-title'].split(' ')[1];
-                 bonusTitleH2.innerHTML = `${bonusOffersText} <span style="color: var(--primary-blue)">${offersText}</span>`;
+                const bonusOffersText = translations[language]['bonus-title'].split(' ')[0];
+                const offersText = translations[language]['bonus-title'].split(' ')[1];
+                bonusTitleH2.innerHTML = `${bonusOffersText} <span style="color: var(--primary-blue)">${offersText}</span>`;
             }
 
             // Set the lang attribute on the HTML tag
@@ -431,7 +432,10 @@
             lastScroll = currentScroll;
         });
     </script>
-<script src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" xintegrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"94d25d670e66d758","version":"2025.5.0","r":1,"token":"332769ee6b8a4d008785502ac76bb2b2","serverTiming":{"name":{"cfExtPri":true,"cfEdge":true,"cfOrigin":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}}}' crossorigin="anonymous"></script>
+    <script src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015"
+        xintegrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ=="
+        data-cf-beacon='{"rayId":"94d25d670e66d758","version":"2025.5.0","r":1,"token":"332769ee6b8a4d008785502ac76bb2b2","serverTiming":{"name":{"cfExtPri":true,"cfEdge":true,"cfOrigin":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}}}'
+        crossorigin="anonymous"></script>
 </body>
 
 </html>
