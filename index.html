@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,7 +7,7 @@
     <title>HurmosTV</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        xintegrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="icon" href="/assets/logo.png" type="image/png">
     <link rel="stylesheet" href="/css/style.css">
@@ -23,17 +22,16 @@
     <meta property="og:url" content="https://hurmostv.com/">
     <meta property="og:title" content="HurmosTV">
     <meta property="og:description" content="Best Stake Rewards and Exclusive Bonuses!">
-    <meta property="og:image"
-        content="/assets/logo.png">
+    <meta property="og:image" content="/assets/logo.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://hurmostv.com/">
     <meta property="twitter:title" content="HurmosTV">
     <meta property="twitter:description" content="Best Stake Rewards and Exclusive Bonuses!">
-    <meta property="twitter:image"
-        content="/assets/logo.png">
+    <meta property="twitter:image" content="/assets/logo.png">
     <style>
+        /* Responsive hero content */
         @media (max-width: 768px) {
             .hero-content {
                 display: flex;
@@ -53,6 +51,31 @@
                 order: 3;
             }
         }
+        
+        /* Language selector styles */
+        .language-selector {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+        }
+
+        .language-selector select {
+            background-color: #1a1a1a;
+            color: #fff;
+            border: 1px solid #444;
+            padding: 8px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            font-size: 1rem;
+            outline: none;
+        }
+
+        .language-selector select:hover {
+            border-color: #2196f3;
+        }
     </style>
 </head>
 
@@ -64,18 +87,25 @@
                     <a href="/" class="logo">
                         <img src="/assets/logo.png" alt="King Logo" style="width: 60px;">
                     </a>
-                    
                 </div>
                 <div class="nav-links">
-                    <a href="/" class="nav-link">HOME</a>
-                    <a href="#socials" class="nav-link">SOCIALS</a>
-                    <a href="/leaderboard/stake" class="nav-link"><i class="fas fa-trophy" style="color: #d4af37"></i>
-                        LEADERBOARD</a>
+                    <a href="/" class="nav-link" data-key="nav-home">HOME</a>
+                    <a href="#socials" class="nav-link" data-key="nav-socials">SOCIALS</a>
+                    <a href="/leaderboard/stake" class="nav-link"><i class="fas fa-trophy"
+                            style="color: #d4af37"></i>
+                        <span data-key="nav-leaderboard">LEADERBOARD</span></a>
                 </div>
                 <button class="mobile-menu-btn">
                     <i class="fas fa-bars"></i>
                 </button>
             </div>
+        </div>
+        <!-- Language selector -->
+        <div class="language-selector">
+            <select id="language-select">
+                <option value="en">English</option>
+                <option value="fi">Finnish</option>
+            </select>
         </div>
     </header>
 
@@ -84,10 +114,10 @@
             <i class="fas fa-times"></i>
         </button>
         <div class="nav-links">
-            <a href="/" class="nav-link" style="color: #2196f3">HOME</a>
-            <a href="#socials" class="nav-link">SOCIALS</a>
+            <a href="/" class="nav-link" style="color: #2196f3" data-key="nav-home-mobile">HOME</a>
+            <a href="#socials" class="nav-link" data-key="nav-socials-mobile">SOCIALS</a>
             <a href="/leaderboard/stake" class="nav-link"><i class="fas fa-trophy" style="color: #d4af37"></i>
-                LEADERBOARD</a>
+                <span data-key="nav-leaderboard-mobile">LEADERBOARD</span></a>
         </div>
     </div>
 
@@ -99,16 +129,16 @@
             <img src="/assets/chest.png" alt="floating icon 4" class="float-img float-4">
         </div>
         <div class="hero-content">
-            <h1>Welcome to HurmosTV Rewards!</h1>
-            <p>SIGN UP TO STAKE USING CODE HURMOS AND GET THE BEST EXCLUSIVE REWARDS!</p>
+            <h1 data-key="hero-title">Welcome to HurmosTV Rewards!</h1>
+            <p data-key="hero-subtitle">SIGN UP TO STAKE USING CODE HURMOS AND GET THE BEST EXCLUSIVE REWARDS!</p>
             <div class="hero-buttons">
                 <a href="https://stake.com/?c=5dfcebc47f&offer=hurmos" target="_blank" class="hero-btn signup-btn">
                     <img src="/assets/stake-signup.png" alt="Sign Up" style="width: 16px; height: 16px;">
-                    Sign Up
+                    <span data-key="btn-signup">Sign Up</span>
                 </a>
                 <a href="/leaderboard/stake" class="hero-btn leaderboard-btn">
                     <i class="fas fa-trophy"></i>
-                    Leaderboard
+                    <span data-key="btn-leaderboard">Leaderboard</span>
                 </a>
             </div>
         </div>
@@ -127,8 +157,8 @@
     <!-- Add this after the bonus section and before social section -->
     <section class="stream-section">
         <div class="section-title">
-            <h2 class="bonus-title">Watch My Streams</h2>
-            <p class="bonus-subtitle">CATCH ME LIVE ON KICK</p>
+            <h2 class="bonus-title" data-key="stream-title">Watch My Streams</h2>
+            <p class="bonus-subtitle" data-key="stream-subtitle">CATCH ME LIVE ON KICK</p>
         </div>
         <div class="stream-container">
             <iframe src="https://player.kick.com/HurmosTV" frameborder="0" allowfullscreen="true" scrolling="no"
@@ -139,8 +169,8 @@
 
     <section class="bonus-section" id="bonuses">
         <div class="section-title">
-            <h2 class="bonus-title">Bonus <span style="color: var(--primary-blue)">Offers</span></h2>
-            <p class="bonus-subtitle">CLAIM AND RECEIVE REWARDS INSTANTLY!</p>
+            <h2 class="bonus-title" data-key="bonus-title">Bonus <span style="color: var(--primary-blue)">Offers</span></h2>
+            <p class="bonus-subtitle" data-key="bonus-subtitle">CLAIM AND RECEIVE REWARDS INSTANTLY!</p>
         </div>
         <div class="bonus-grid">
             <div class="bonus-card">
@@ -148,46 +178,46 @@
                 <ul class="bonus-features">
                     <li class="bonus-feature">
                         <i class="fas fa-check"></i>
-                        <span>INSTANT RAKEBACK</span>
+                        <span data-key="bonus-1">INSTANT RAKEBACK</span>
                     </li>
                     <li class="bonus-feature">
                         <i class="fas fa-check"></i>
-                        <span>RANKUP REWARDS</span>
+                        <span data-key="bonus-2">RANKUP REWARDS</span>
                     </li>
                     <li class="bonus-feature">
                         <i class="fas fa-check"></i>
-                        <span>15,000$ WAGER LEADERBOARD</span>
+                        <span data-key="bonus-3">15,000$ WAGER LEADERBOARD</span>
                     </li>
                 </ul>
                 <a href="https://stake.com/?c=5dfcebc47f&offer=hurmos" target="_blank" class="claim-btn"
-                    style="text-decoration: none; color: white; text-align: center;">CLAIM BONUS</a>
+                    style="text-decoration: none; color: white; text-align: center;" data-key="btn-claim">CLAIM BONUS</a>
             </div>
         </div>
     </section>
 
     <section class="social-section" id="socials">
         <div class="section-title">
-            <h2 class="bonus-title">Connect With Me</h2>
-            <p class="bonus-subtitle">JOIN OUR GROWING COMMUNITY</p>
+            <h2 class="bonus-title" data-key="socials-title">Connect With Me</h2>
+            <p class="bonus-subtitle" data-key="socials-subtitle">JOIN OUR GROWING COMMUNITY</p>
         </div>
         <div class="social-grid">
             <a href="https://www.instagram.com/HurmosTV" class="social-card"
                 style="background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);">
                 <i class="fab fa-instagram social-icon"></i>
-                <div class="social-name">Instagram</div>
+                <div class="social-name" data-key="social-1-name">Instagram</div>
                 <div class="social-handle">@HurmosTV</div>
             </a>
             <a href="https://kick.com/HurmosTV" class="social-card"
                 style="background: linear-gradient(145deg, #1a8f6c, #20B486);">
                 <i class="fa-brands fa-kickstarter-k social-icon"></i>
-                <div class="social-name">Kick</div>
+                <div class="social-name" data-key="social-2-name">Kick</div>
                 <div class="social-handle">HurmosTV</div>
             </a>
             <a href="https://discord.gg/DNXwG5Yvpf" class="social-card"
                 style="background: linear-gradient(145deg, #4752c4, #5865F2);">
                 <i class="fab fa-discord social-icon"></i>
-                <div class="social-name">Discord</div>
-                <div class="social-handle">Join our community!</div>
+                <div class="social-name" data-key="social-3-name">Discord</div>
+                <div class="social-handle" data-key="social-3-handle">Join our community!</div>
             </a>
         </div>
     </section>
@@ -197,9 +227,9 @@
         <div class="footer-content">
             <div class="footer-top">
                 <div class="footer-links">
-                    <a href="/" class="footer-link">Home</a>
-                    <a href="#socials" class="footer-link">Socials</a>
-                    <a href="/leaderboard/stake" class="footer-link">Leaderboard</a>
+                    <a href="/" class="footer-link" data-key="footer-home">Home</a>
+                    <a href="#socials" class="footer-link" data-key="footer-socials">Socials</a>
+                    <a href="/leaderboard/stake" class="footer-link" data-key="footer-leaderboard">Leaderboard</a>
                 </div>
                 <div class="footer-social">
                     <a href="https://www.instagram.com/HurmosTV"><i class="fab fa-instagram"></i></a>
@@ -209,16 +239,120 @@
             </div>
             <div class="gamble-aware">
                 <p class="gamble-aware-text">
-                    Please gamble responsibly. Gambling can be addictive and may result in difficulties. For help and
-                    support, visit <a href="https://www.begambleaware.org" target="_blank" rel="noopener noreferrer"
+                    <span data-key="gamble-aware-1">Please gamble responsibly. Gambling can be addictive and may result
+                        in difficulties. For help and support, visit</span>
+                    <a href="https://www.begambleaware.org" target="_blank" rel="noopener noreferrer"
                         class="gamble-aware-link">BeGambleAware.org</a>
                 </p>
             </div>
-            <p class="footer-text">&copy; 2025 HurmosTV All rights reserved.</p>
+            <p class="footer-text" data-key="footer-copyright">&copy; 2025 HurmosTV All rights reserved.</p>
         </div>
     </footer>
 
     <script>
+        // Language translations
+        const translations = {
+            'en': {
+                'nav-home': 'HOME',
+                'nav-socials': 'SOCIALS',
+                'nav-leaderboard': 'LEADERBOARD',
+                'nav-home-mobile': 'HOME',
+                'nav-socials-mobile': 'SOCIALS',
+                'nav-leaderboard-mobile': 'LEADERBOARD',
+                'hero-title': 'Welcome to HurmosTV Rewards!',
+                'hero-subtitle': 'SIGN UP TO STAKE USING CODE HURMOS AND GET THE BEST EXCLUSIVE REWARDS!',
+                'btn-signup': 'Sign Up',
+                'btn-leaderboard': 'Leaderboard',
+                'stream-title': 'Watch My Streams',
+                'stream-subtitle': 'CATCH ME LIVE ON KICK',
+                'bonus-title': 'Bonus Offers',
+                'bonus-subtitle': 'CLAIM AND RECEIVE REWARDS INSTANTLY!',
+                'bonus-1': 'INSTANT RAKEBACK',
+                'bonus-2': 'RANKUP REWARDS',
+                'bonus-3': '15,000$ WAGER LEADERBOARD',
+                'btn-claim': 'CLAIM BONUS',
+                'socials-title': 'Connect With Me',
+                'socials-subtitle': 'JOIN OUR GROWING COMMUNITY',
+                'social-1-name': 'Instagram',
+                'social-2-name': 'Kick',
+                'social-3-name': 'Discord',
+                'social-3-handle': 'Join our community!',
+                'footer-home': 'Home',
+                'footer-socials': 'Socials',
+                'footer-leaderboard': 'Leaderboard',
+                'gamble-aware-1': 'Please gamble responsibly. Gambling can be addictive and may result in difficulties. For help and support, visit',
+                'footer-copyright': '&copy; 2025 HurmosTV All rights reserved.'
+            },
+            'fi': {
+                'nav-home': 'ETUSIVU',
+                'nav-socials': 'SOSIAALINEN MEDIA',
+                'nav-leaderboard': 'TULOSLUETTELO',
+                'nav-home-mobile': 'ETUSIVU',
+                'nav-socials-mobile': 'SOSIAALINEN MEDIA',
+                'nav-leaderboard-mobile': 'TULOSLUETTELO',
+                'hero-title': 'Tervetuloa HurmosTV Rewards -sivulle!',
+                'hero-subtitle': 'REKISTERÖIDY STAKELLE KOODILLA HURMOS JA SAAT PARHAAT YKSINOIKEUDELLISET PALKINNOT!',
+                'btn-signup': 'Rekisteröidy',
+                'btn-leaderboard': 'Tulostaulukko',
+                'stream-title': 'Katso striimejäni',
+                'stream-subtitle': 'KATSO MINUA LIVENÄ KICKISSÄ',
+                'bonus-title': 'Bonustarjoukset',
+                'bonus-subtitle': 'LUNASTA JA VASTAANOTA PALKINTOJA HETI!',
+                'bonus-1': 'VÄLITÖN RAKEBACK',
+                'bonus-2': 'RANKUP PALKINNOT',
+                'bonus-3': '15 000$ PANOS TULOSLUETTELO',
+                'btn-claim': 'LUNASTA BONUS',
+                'socials-title': 'Ota yhteyttä',
+                'socials-subtitle': 'LIITY KASVAVAAN YHTEISÖÖMME',
+                'social-1-name': 'Instagram',
+                'social-2-name': 'Kick',
+                'social-3-name': 'Discord',
+                'social-3-handle': 'Liity yhteisöömme!',
+                'footer-home': 'Etusivu',
+                'footer-socials': 'Sosiaalinen media',
+                'footer-leaderboard': 'Tulostaulukko',
+                'gamble-aware-1': 'Pelaa vastuullisesti. Rahapelit voivat aiheuttaa riippuvuutta ja johtaa ongelmiin. Apua ja tukea löydät',
+                'footer-copyright': '&copy; 2025 HurmosTV Kaikki oikeudet pidätetään.'
+            }
+        };
+
+        // Function to update all text content
+        function updateContent(language) {
+            const elements = document.querySelectorAll('[data-key]');
+            elements.forEach(element => {
+                const key = element.getAttribute('data-key');
+                if (translations[language][key]) {
+                    element.textContent = translations[language][key];
+                }
+            });
+
+            // Handle the span inside the bonus title separately to preserve its color
+            const bonusTitleH2 = document.querySelector('.section-title .bonus-title');
+            if (bonusTitleH2 && translations[language]['bonus-title']) {
+                 const bonusOffersText = translations[language]['bonus-title'].split(' ')[0];
+                 const offersText = translations[language]['bonus-title'].split(' ')[1];
+                 bonusTitleH2.innerHTML = `${bonusOffersText} <span style="color: var(--primary-blue)">${offersText}</span>`;
+            }
+
+            // Set the lang attribute on the HTML tag
+            document.documentElement.lang = language;
+        }
+
+        // Language selector logic
+        const languageSelect = document.getElementById('language-select');
+
+        // Set initial language from localStorage or default to English
+        const storedLanguage = localStorage.getItem('language') || 'en';
+        languageSelect.value = storedLanguage;
+        updateContent(storedLanguage);
+
+        // Listen for language change
+        languageSelect.addEventListener('change', (event) => {
+            const newLanguage = event.target.value;
+            localStorage.setItem('language', newLanguage);
+            updateContent(newLanguage);
+        });
+
         // Mobile menu functionality
         const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
         const closeMenuBtn = document.querySelector('.close-menu');
@@ -260,12 +394,9 @@
         document.querySelectorAll('a[href*="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 const href = this.getAttribute('href');
-                // If we're not on the home page and trying to access a section
                 if (href.startsWith('/#') && window.location.pathname !== '/') {
-                    // Don't prevent default - let the browser navigate to home page
                     return;
                 }
-
                 e.preventDefault();
                 const targetId = href.split('#')[1];
                 const target = document.querySelector('#' + targetId);
@@ -300,7 +431,7 @@
             lastScroll = currentScroll;
         });
     </script>
-<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"94d25d670e66d758","version":"2025.5.0","r":1,"token":"332769ee6b8a4d008785502ac76bb2b2","serverTiming":{"name":{"cfExtPri":true,"cfEdge":true,"cfOrigin":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}}}' crossorigin="anonymous"></script>
+<script src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" xintegrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"94d25d670e66d758","version":"2025.5.0","r":1,"token":"332769ee6b8a4d008785502ac76bb2b2","serverTiming":{"name":{"cfExtPri":true,"cfEdge":true,"cfOrigin":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}}}' crossorigin="anonymous"></script>
 </body>
 
 </html>
