@@ -628,7 +628,7 @@
             const tbody = document.querySelector('.leaderboard-table tbody');
             tbody.innerHTML = ''; // Clear existing rows
 
-            for (let i = 3; i < 10; i++) {
+            for (let i = 3; i < 30; i++) {
                 const player = leaderboardData[i];
                 const prize = prizes.find(p => p.position === i + 1);
                 if (player) {
