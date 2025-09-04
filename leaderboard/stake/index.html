@@ -566,8 +566,8 @@
         async function fetchLeaderboardData() {
             try {
                 const [leaderboardResponse, countdownResponse] = await Promise.all([
-                    fetch('https://lobbedata.onrender.com/api/leaderboard/stake'),
-                    fetch('https://lobbedata.onrender.com/api/countdown/Stake')
+                    fetch('https://hurmostvdata.onrender.com/api/leaderboard/stake'),
+                    fetch('https://hurmostvdata.onrender.com/api/countdown/stake')
                 ]);
 
                 if (!leaderboardResponse.ok || !countdownResponse.ok) {
